@@ -10,10 +10,30 @@
 
 //
 
-//import utility scanner = input
 import java.util.Scanner;
 
 class Main {
+    static void main() {
+        //call header, body, footer
+
+    }
+
+    static void displayHeader() {
+        //prints the heading area
+
+    }
+
+    static void displayBody() {
+        //reads file Lab06Data.txt, prints the body
+        //until 'quit'
+
+    }
+
+    static void displayFooter() {
+        //the total amount
+
+    }
+
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
