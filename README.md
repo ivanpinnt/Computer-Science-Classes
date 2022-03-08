@@ -1,0 +1,3 @@
+# Computer Science Classes
+
+Assignments, labs, and homework. Beware memes are around...
