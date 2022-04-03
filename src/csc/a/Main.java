@@ -31,19 +31,20 @@ class Main
         File myFile = new File("Lab8Data.txt");
         Scanner input = new Scanner(myFile);
 
-        boolean rowOkay = true;
-        boolean colOkay = true;
-        boolean diagOkay = true;
+
 
         // run test to see if magic square
         while (true)
         {
+            boolean rowOkay = true;
+            boolean colOkay = true;
+            boolean diagOkay = true;
+
             // reset -- magic square
             int[][] magicSquare = new int[4][4];
             // reset -- data pool that will hold all data
             int[] rowTotal = {0, 0, 0, 0};
             int[] colTotal = {0, 0, 0, 0};
-            int[] firstRow = {};
             int diagonalTotal = 0;
             int diagonalRevTotal = 0;
             int sumRow = 0;
@@ -114,19 +115,22 @@ class Main
                 diagOkay = false;
             }
 
-            if (rowOkay && colOkay && diagOkay) {
-                if ((rowTotal[0] == colTotal[0]) && (colTotal[0] == diagonalTotal)) {
-                    System.out.println("It is a magic square");
-                } else {
-                    System.out.println("It is not a magic square");
-                }
-            }
-
-            System.out.println("row = " + sumRow);
-            System.out.println("col = " + sumCol);
+/*
+            System.out.println("row = " + rowTotal[0]+ " " + rowTotal[1]+ " " +rowTotal[2]+ " " + rowTotal[3]);
+            System.out.println("col = " + colTotal[0]+ " " +colTotal[1]+ " " + colTotal[2]+ " " + colTotal[3]);
             System.out.println("diag = " + diagonalTotal);
             System.out.println("Revdiag = " + diagonalRevTotal);
+            System.out.println(rowOkay);
+            System.out.println(colOkay);
+            System.out.println(diagOkay);
+ */
+            if (rowOkay && colOkay && diagOkay) {
+                System.out.println("It is a magic square");
 
+            } else {
+                System.out.println("It is not a magic square");
+
+            }
         }
     }
 }
