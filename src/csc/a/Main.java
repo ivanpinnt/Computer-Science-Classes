@@ -1,4 +1,4 @@
-package csc.a;
+//package csc.a;
 
 // Ivan Pinnt
 // CSC 160 Computer Science I, section 680
@@ -31,7 +31,9 @@ class Main
         File myFile = new File("Lab8Data.txt");
         Scanner input = new Scanner(myFile);
 
-        boolean track = true;
+        boolean rowOkay = true;
+        boolean colOkay = true;
+        boolean diagOkay = true;
 
         // run test to see if magic square
         while (true)
@@ -41,18 +43,11 @@ class Main
             // reset -- data pool that will hold all data
             int[] rowTotal = {0, 0, 0, 0};
             int[] colTotal = {0, 0, 0, 0};
+            int[] firstRow = {};
             int diagonalTotal = 0;
             int diagonalRevTotal = 0;
             int sumRow = 0;
             int sumCol = 0;
-
-/*
-            This does not work because it calls for a new number
-            int stopNum = input.nextInt();
-            if (stopNum == -999) {
-                break;
-            }
-*/
 
             // create 4x4 matrix
             for (int row=0; row < 4; row++) {
@@ -64,59 +59,73 @@ class Main
             // read matrix
             for (int row=0; row < 4; row++) {
                 for (int col = 0; col < 4; col++) {
+                    if (magicSquare[0][0] == -999) {
+                        break;
+                    }
                     System.out.print(magicSquare[row][col] + " ");
                 }
                 System.out.println();
             }
 
             // row total
-            sumRow = 0;
             for (int row = 0; row < 4; row++) {                     // grab row
                 for (int col = 0; col < 4; col++) {                 // grab column
                     rowTotal[row] += magicSquare[row][col];         // total out
                 }
             }
-            for (int z=0; z < rowTotal.length; z++) {
-                sumRow += rowTotal[z];
-            }
-
 
             // column total
-            sumCol = 0;
             for (int col = 0; col < 4; col++) {                     // grab col
                 for (int row = 0; row < 4; row++) {                 // grab row
-                    colTotal[col] = magicSquare[row][col];          // total out
+                    colTotal[col] += magicSquare[row][col];          // total out
                 }
-            }
-            for (int z=0; z < colTotal.length; z++) {
-                sumCol += colTotal[z];
             }
 
             // top left to bottom right
-            diagonalTotal = 0;
             for (int row = 0; row < 4; row++) {                     // row + 1
                 diagonalTotal += magicSquare[row][row];
             }
 
-            if (sumRow != sumCol || sumRow != diagonalTotal) {
-                if (sumCol != diagonalTotal) {
-                    track = false;
+            // top right to bottom left
+            int cols = 3;
+            for (int row = 0; row < 4; row++) {                    // row - 1
+                diagonalRevTotal += magicSquare[row][cols];
+                cols -= 1;
+            }
+
+            // check rows
+            for (int x = 0; x < 4; x++) {
+                if (rowTotal[x] != rowTotal[0]) {
+                    rowOkay = false;
+                    break;
                 }
             }
 
-/*
-            // top right to bottom left
-            for (int row = 3; row >= 0; row--) {                    // row - 1
-                diagonal2Total += magicSquare[row][row];
- */
-
-            if (!track) {
-                System.out.println(sumRow);
-                System.out.println("It is not a magic square");
-            } else {
-                System.out.println(sumRow);
-                System.out.println("It is a magic square");
+            // check columns
+            for (int x = 0; x < 4; x++) {
+                if (colTotal[x] != colTotal[0]) {
+                    colOkay = false;
+                    break;
+                }
             }
+
+            // check the diagonals
+            if (diagonalTotal != diagonalRevTotal) {
+                diagOkay = false;
+            }
+
+            if (rowOkay && colOkay && diagOkay) {
+                if ((rowTotal[0] == colTotal[0]) && (colTotal[0] == diagonalTotal)) {
+                    System.out.println("It is a magic square");
+                } else {
+                    System.out.println("It is not a magic square");
+                }
+            }
+
+            System.out.println("row = " + sumRow);
+            System.out.println("col = " + sumCol);
+            System.out.println("diag = " + diagonalTotal);
+            System.out.println("Revdiag = " + diagonalRevTotal);
 
         }
     }
