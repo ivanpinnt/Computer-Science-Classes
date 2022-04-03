@@ -126,10 +126,8 @@ class Main
  */
             if (rowOkay && colOkay && diagOkay) {
                 System.out.println("It is a magic square");
-
             } else {
                 System.out.println("It is not a magic square");
-
             }
         }
     }
