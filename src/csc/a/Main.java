@@ -94,7 +94,7 @@ class Main
                 if (userChar == 0) {
                     userChar = 'H';
                 } else {
-                    userChar = 'L';
+                    userChar = 'T';
                 }
 
                 // print out characters
