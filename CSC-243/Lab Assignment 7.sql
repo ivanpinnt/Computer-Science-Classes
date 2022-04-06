@@ -29,4 +29,21 @@ FROM
 SELECT
 	orders.order_id,
     orders.order_date,
+    DAY(DATE((orders.order_date)))+2 AS approx_ship_date,
+    orders.ship_date,
+    DAY(DATE((orders.ship_date-orders.order_date))) AS days_to_ship
+FROM
+	orders
+WHERE
+	YEAR(DATE(orders.order_date))=2018 AND
+    MONTH(DATE(orders.order_date))=03;
+    
+-- question 5
+SELECT
+	a.email_address,
+    (SUBSTRING_INDEX(a.email_address, '@', 1)) AS email_name,
+    (SUBSTRING_INDEX(SUBSTR(a.email_address, INSTR(a.email_address, '@') + 1), '.', 1)) AS domain_name
+FROM
+	administrators a;
+	
     
