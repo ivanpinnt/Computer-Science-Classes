@@ -1,6 +1,5 @@
-package csc.a;
+package csc.currentproject;
 
-//
 // Ivan Pinnt
 // CSC 160 Computer Science I, section 680
 // Apr 11, 2022
@@ -18,16 +17,32 @@ class Stock
     double currentPrice;
 
     // CONSTRUCTORS
-    Stock(String symbol, String name, double previousClosingPrice, double currentPrice) {
+    Stock(String symbol, String name, double previousClosingPrice, double currentPrice)
+    {
         this.symbol = symbol;
         this.name = name;
+        this.previousClosingPrice = previousClosingPrice;
+        this.currentPrice = currentPrice;
     }
 
-    // METHOD
-    String getSymbol() {
-        return symbol;
+    // METHOD *
+    void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
-
+    // *
+    void setName(String name) {
+        this.name = name;
+    }
+    // *
+    void setCurrentPrice(double currentPrice) {
+        this.previousClosingPrice = this.currentPrice;
+        this.currentPrice = currentPrice;
+    }
+    // *
+    void setPreviousClosingPrice(double previousClosingPrice) {
+        this.previousClosingPrice = previousClosingPrice;
+    }
+    // *
     double getChangePercent() {
         return (currentPrice - previousClosingPrice) / previousClosingPrice;
     }

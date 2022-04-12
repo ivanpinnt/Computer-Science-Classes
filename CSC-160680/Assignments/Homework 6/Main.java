@@ -1,4 +1,4 @@
-package csc.a;
+package csc.currentproject;
 
 //
 // Ivan Pinnt
