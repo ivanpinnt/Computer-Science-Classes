@@ -3,40 +3,41 @@ package csc.a;
 //
 // Ivan Pinnt
 // CSC 160 Computer Science I, section 680
-// Apr 3, 2022
+// Apr 11, 2022
 
-// Coffee dispenser project
+// Stock object Exercise 9.2 Pg. 363
+// Using data fields, constructors, and methods to create a previous day and
+// current day price of stocks
 
-class Main
+class Stock
 {
-    // variables go here
-    public int ouncesRemaining;
+    // LIBRARY
+    String name;
+    String symbol;
+    double previousClosingPrice;
+    double currentPrice;
 
-    // connector
-    public void coffeeDispenser()
-    {
-        // connect with later method
-        ouncesRemaining = 128;
+    // CONSTRUCTORS
+    Stock(String symbol, String name, double previousClosingPrice, double currentPrice) {
+        this.symbol = symbol;
+        this.name = name;
     }
 
-    // methods go here
-    public void dispense(int num)
-    {
-        // on the ounceRemaining add with later method
-        if (num <= ouncesRemaining) {
-            ouncesRemaining = ouncesRemaining - num;
-        }
+    // METHOD
+    String getSymbol() {
+        return symbol;
     }
 
-    public static int returnOuncesRemaining()
-    {
-        return ouncesRemaining;
+    double getChangePercent() {
+        return (currentPrice - previousClosingPrice) / previousClosingPrice;
     }
 
-    public static void main(String[] args)
-    {
-        Main start = new Main();
-        System.out.println("Ounces reamining: " + returnOuncesRemaining());
-
+    // CALL CONSTRUCTOR & METHOD
+    public static void main(String[] args) {
+        //Create a new Stock object with the specified data using the constructor.
+        Stock ORCLStock = new Stock("ORCL", "Oracle Corporation", 34.5, 34.35);
+        Stock YAHOOStock = new Stock("YAHOO", "Yahoo", 34.5, 34.35);
+        //Print the change in percent of the stock using the getChangePercent method.
+        System.out.println("The percent change is " + ORCLStock.getChangePercent() + "%");
     }
 }
