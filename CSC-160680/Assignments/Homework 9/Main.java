@@ -2,7 +2,7 @@ package csc.currentproject;
 
 // Ivan Pinnt
 // CSC 160 Computer Science I, section 680
-// Apr 11, 2022
+// Apr 18, 2022
 
 // Stock object Exercise 9.2 Pg. 363
 // Using data fields, constructors, and methods to create a previous day and
@@ -44,7 +44,7 @@ class Stock
     }
     // *
     double getChangePercent() {
-        return (currentPrice - previousClosingPrice) / previousClosingPrice;
+        return ((currentPrice - previousClosingPrice) / previousClosingPrice) * 100;
     }
 
     // CALL CONSTRUCTOR & METHOD
