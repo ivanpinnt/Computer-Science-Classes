@@ -3,7 +3,7 @@ package csc.currentproject;
 import java.util.Random;
 
 // DICE ROLL
-public class dice
+public class Dice
 {
     ////////////////////////////////////////////////////////////////////////////////////////
     // DICE ROLL
@@ -21,25 +21,14 @@ public class dice
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////
-    // PLAYER STORAGE
+    // DICE STORAGE ( MAY USE )
     ////////////////////////////////////////////////////////////////////////////////////////
     // SET
-    // Player 1 Storage
-    int p1;
-    void p1Total(int total){
-        p1 += total;
-    }
-    // Player 2 Storage
-    int p2;
-    void p2Total(int total){
-        p2 += total;
-    }
+    int die1, die2;
+    void setDie1(int dice) {die1 += dice;}
+    void setDie2(int dice) {die2 += dice;}
+    // GRAB
+    int getDie1(){return die1;}
+    int getDie2(){return die2;}
 
-    // GET
-    int getP1Total(){return p1;}
-    int getP2Total(){return p2;}
-
-    ////////////////////////////////////////////////////////////////////////////////////////
-    // PLAYER STORAGE
-    ////////////////////////////////////////////////////////////////////////////////////////
 }
