@@ -58,13 +58,14 @@ public class Main
 				);
 		Line();
 
+		// PLAYER 1 SETUP
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Please enter name of first player: ");
 		String name = sc.nextLine();
 		player1.setUserName(name);
 		player1.setP1Score(0);
 
-		// PLAYER 2
+		// PLAYER 2 SETUP
 		Scanner sc2 = new Scanner(System.in);
 		System.out.print("Please enter name of second player: ");
 		String name2 = sc2.nextLine();
